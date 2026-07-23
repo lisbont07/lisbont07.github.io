@@ -1,0 +1,58 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+if (typeof cpmStar == "undefined") var cpmStar = {};
+
+cpmStar.closestAspect = function(width, height, availImages) {
+    if (availImages.length == 0) return { url: '', width: width, height: height };
+    var aspect = width / height;
+    var bestIndex = 0;
+    var bestFit = 0;
+    for (i = 0; i < availImages.length; i++) {
+        var iAspect = availImages[i].width / availImages[i].height;
+        var iFit = iAspect / aspect;
+        if (iFit > 1) iFit = 1 / iFit;
+        if (iFit > bestFit) {
+            bestFit = iFit;
+            bestIndex = i;
+        }
+    }
+    return availImages[bestIndex];
+}
+
+cpmStar.adCounter = 0;
+cpmStar.getCurrentAdInfo = function() { return cpmStarMultiAdInfo[cpmStar.adCounter]; }
+cpmStar.getAuthor = function() { return (typeof cpmStar.getCurrentAdInfo().author == "undefined") ? "" : cpmStar.getCurrentAdInfo().author; }
+cpmStar.getImageUrl = function(width, height) {
+    return cpmStar.closestAspect(width, height, cpmStar.getCurrentAdInfo().imgs).url;
+}
+cpmStar.getLink = function() { return cpmStar.getCurrentAdInfo().link; }
+cpmStar.getTitle = function() { return cpmStar.getCurrentAdInfo().title; }
+cpmStar.getDescription = function() { return cpmStar.getCurrentAdInfo().desc; }
+cpmStar.nextAd = function() { cpmStar.adCounter++; }
+cpmStar.numAds = function() { return cpmStarMultiAdInfo.length; }
+cpmStar.adsLeft = function() { return cpmStarMultiAdInfo.length - cpmStar.adCounter; }
+
+}
+
+/*
+     FILE ARCHIVED ON 21:00:59 May 31, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:59:40 Jul 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.378
+  load_resource: 142.237
+  PetaboxLoader3.resolve: 58.456
+  PetaboxLoader3.datanode: 30.303
+*/
